@@ -75,4 +75,3 @@ Access the API documentation at `/swagger-ui.html` after starting the applicatio
 ## License
 
 This project is licensed under the MIT License.
-# MINIPROJECT.in
