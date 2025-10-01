@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "buildCommand": "chmod +x ./build.sh && ./build.sh",
+  "buildCommand": "node ./vercel-build.js",
   "outputDirectory": "target",
   "functions": {
     "api/app.js": {
