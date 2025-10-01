@@ -1,15 +1,17 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "target/in-0.0.1-SNAPSHOT.jar",
-      "use": "@vercel/java"
+  "buildCommand": "chmod +x ./build.sh && ./build.sh",
+  "outputDirectory": "target",
+  "functions": {
+    "api/app.js": {
+      "memory": 1024,
+      "maxDuration": 10
     }
+  },
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/api/app" }
   ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "target/in-0.0.1-SNAPSHOT.jar"
-    }
-  ]
+  "env": {
+    "SPRING_PROFILES_ACTIVE": "vercel"
+  }
 }

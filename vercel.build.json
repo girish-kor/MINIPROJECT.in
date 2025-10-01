@@ -1,0 +1,6 @@
+{
+  "buildCommand": "chmod +x vercel-deploy.sh && ./vercel-deploy.sh",
+  "outputDirectory": "target",
+  "devCommand": "chmod +x mvnw && ./mvnw spring-boot:run -Dspring.profiles.active=dev",
+  "installCommand": "echo 'Skipping install step'"
+}
