@@ -10,6 +10,7 @@ services:
       # MongoDB Connection (you should set this in Render dashboard)
       - key: MONGODB_URI
         sync: false
+        # Make sure to include database name in the URI (e.g. mongodb+srv://user:pass@host/dbname?options)
       # JWT Configuration
       - key: JWT_SECRET
         sync: false

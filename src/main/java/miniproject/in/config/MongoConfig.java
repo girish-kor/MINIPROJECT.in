@@ -23,15 +23,38 @@ public class MongoConfig extends AbstractMongoClientConfiguration {
     protected String getDatabaseName() {
         // Extract database name from URI
         String dbName = "miniproject";
-        int lastSlashIndex = mongoUri.lastIndexOf('/');
-        if (lastSlashIndex != -1) {
-            dbName = mongoUri.substring(lastSlashIndex + 1);
-            // Remove any query parameters
-            int queryIndex = dbName.indexOf('?');
-            if (queryIndex != -1) {
-                dbName = dbName.substring(0, queryIndex);
+        
+        try {
+            ConnectionString connString = new ConnectionString(mongoUri);
+            String database = connString.getDatabase();
+            
+            if (database != null && !database.isEmpty()) {
+                dbName = database;
+            } else {
+                // Fallback to manual parsing if ConnectionString doesn't provide database
+                int lastSlashIndex = mongoUri.lastIndexOf('/');
+                if (lastSlashIndex != -1 && lastSlashIndex < mongoUri.length() - 1) {
+                    String afterSlash = mongoUri.substring(lastSlashIndex + 1);
+                    // Remove any query parameters
+                    int queryIndex = afterSlash.indexOf('?');
+                    if (queryIndex != -1) {
+                        dbName = afterSlash.substring(0, queryIndex);
+                    } else {
+                        dbName = afterSlash;
+                    }
+                }
             }
+        } catch (Exception e) {
+            // If any error occurs, use the default database name
+            System.out.println("Failed to extract database name from URI: " + e.getMessage());
         }
+        
+        // Ensure database name is not empty
+        if (dbName == null || dbName.trim().isEmpty()) {
+            dbName = "miniproject";
+        }
+        
+        System.out.println("Using MongoDB database: " + dbName);
         return dbName;
     }
 
