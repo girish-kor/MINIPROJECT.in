@@ -3,6 +3,8 @@ const url = require('url');
 
 // Handle API requests directly with Node.js
 function handleRequest(req, res) {
+  console.log(`Handling request: ${req.method} ${req.url}`);
+  
   // Add CORS headers
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
@@ -15,6 +17,9 @@ function handleRequest(req, res) {
     res.end();
     return;
   }
+  
+  // Debug headers
+  console.log('Request Headers:', JSON.stringify(req.headers, null, 2));
   
   // Parse the URL
   const parsedUrl = url.parse(req.url, true);
