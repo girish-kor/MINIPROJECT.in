@@ -46,28 +46,6 @@ MINIPROJECT.in is a modern digital marketplace built with Spring Boot and MongoD
 2. Copy `.env.example` to `.env` and configure your environment
 3. Run `./mvnw spring-boot:run`
 
-## Deployment
-
-### Vercel Deployment
-
-1. Install Vercel CLI: `npm i -g vercel`
-2. Build the project:
-   - Windows: `.\vercel-deploy.bat`
-   - Unix/Mac: `./vercel-deploy.sh`
-3. Deploy to Vercel: `vercel`
-4. Follow the CLI prompts to complete deployment
-5. For production deployment: `vercel --prod`
-
-### Environment Variables
-
-Configure these environment variables in your Vercel project dashboard:
-
-- MONGODB_URI
-- JWT_SECRET
-- STRIPE_SECRET_KEY
-- MAIL_USERNAME
-- MAIL_PASSWORD
-
 ## API Documentation
 
 Access the API documentation at `/swagger-ui.html` after starting the application.
