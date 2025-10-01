@@ -1,0 +1,45 @@
+services:
+  - type: web
+    name: miniproject-backend
+    runtime: docker
+    plan: free
+    region: oregon
+    envVars:
+      - key: SERVER_PORT
+        value: 8080
+      # MongoDB Connection (you should set this in Render dashboard)
+      - key: MONGODB_URI
+        sync: false
+      # JWT Configuration
+      - key: JWT_SECRET
+        sync: false
+      - key: JWT_EXPIRATION
+        value: "86400000"
+      # Mail Configuration
+      - key: MAIL_HOST
+        value: "smtp.gmail.com"
+      - key: MAIL_PORT
+        value: "587"
+      - key: MAIL_USERNAME
+        sync: false
+      - key: MAIL_PASSWORD
+        sync: false
+      # Stripe Configuration
+      - key: STRIPE_SECRET_KEY
+        sync: false
+      - key: STRIPE_PUBLISHABLE_KEY
+        sync: false
+      - key: STRIPE_WEBHOOK_SECRET
+        sync: false
+      - key: STRIPE_SUCCESS_URL
+        value: "https://your-frontend-url/payment/success"
+      - key: STRIPE_CANCEL_URL
+        value: "https://your-frontend-url/payment/cancel"
+      # OTP Configuration
+      - key: OTP_EXPIRATION
+        value: "300000"
+      # Java options
+      - key: JAVA_OPTS
+        value: "-XX:+UseContainerSupport -Xmx512m -Djava.security.egd=file:/dev/./urandom"
+    buildCommand: ./mvnw clean package -DskipTests
+    startCommand: java $JAVA_OPTS -jar target/*.jar

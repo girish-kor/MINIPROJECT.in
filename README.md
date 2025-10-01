@@ -33,7 +33,7 @@ MINIPROJECT.in is a modern digital marketplace built with Spring Boot and MongoD
 
 ## Tech Stack
 
-- Java 17
+- Java 21
 - Spring Boot
 - MongoDB
 - JWT Authentication
@@ -50,7 +50,35 @@ MINIPROJECT.in is a modern digital marketplace built with Spring Boot and MongoD
 
 Access the API documentation at `/swagger-ui.html` after starting the application.
 
+## Deployment on Render
+
+### Prerequisites
+
+- A [Render](https://render.com) account
+- A MongoDB database (you can use MongoDB Atlas)
+
+### Deployment Steps
+
+1. Fork this repository or push your code to your GitHub account
+2. Log in to Render and select "New Web Service"
+3. Connect your GitHub repository
+4. Use the following settings:
+   - Name: miniproject-backend (or your preferred name)
+   - Region: Select closest to your users
+   - Branch: main (or your default branch)
+   - Root Directory: ./
+   - Runtime: Docker
+   - Plan: Free (or choose another plan for production)
+5. Add the following environment variables in the Render dashboard:
+   - MONGODB_URI: mongodb+srv://your-connection-string
+   - JWT_SECRET: your-secret-key
+   - STRIPE_SECRET_KEY: your-stripe-secret-key
+   - STRIPE_PUBLISHABLE_KEY: your-stripe-publishable-key
+   - STRIPE_WEBHOOK_SECRET: your-stripe-webhook-secret
+   - MAIL_USERNAME: your-email
+   - MAIL_PASSWORD: your-email-password
+6. Click "Create Web Service"
+
 ## License
 
 This project is licensed under the MIT License.
-# MINIPROJECT.in
