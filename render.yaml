@@ -14,12 +14,12 @@ services:
       - key: JWT_SECRET
         sync: false
       - key: JWT_EXPIRATION
-        value: "86400000"
+        value: '86400000'
       # Mail Configuration
       - key: MAIL_HOST
-        value: "smtp.gmail.com"
+        value: 'smtp.gmail.com'
       - key: MAIL_PORT
-        value: "587"
+        value: '587'
       - key: MAIL_USERNAME
         sync: false
       - key: MAIL_PASSWORD
@@ -32,14 +32,14 @@ services:
       - key: STRIPE_WEBHOOK_SECRET
         sync: false
       - key: STRIPE_SUCCESS_URL
-        value: "https://your-frontend-url/payment/success"
+        value: 'https://your-frontend-url/payment/success'
       - key: STRIPE_CANCEL_URL
-        value: "https://your-frontend-url/payment/cancel"
+        value: 'https://your-frontend-url/payment/cancel'
       # OTP Configuration
       - key: OTP_EXPIRATION
-        value: "300000"
+        value: '300000'
       # Java options
       - key: JAVA_OPTS
-        value: "-XX:+UseContainerSupport -Xmx512m -Djava.security.egd=file:/dev/./urandom"
+        value: '-XX:+UseContainerSupport -Xmx512m -Djava.security.egd=file:/dev/./urandom'
     buildCommand: ./mvnw clean package -DskipTests
     startCommand: java $JAVA_OPTS -jar target/*.jar

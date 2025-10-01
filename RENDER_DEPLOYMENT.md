@@ -40,31 +40,32 @@ These files have already been added to your project.
 3. Connect your repository by selecting the Git provider where your code is hosted
 4. Find and select your repository
 5. Configure the deployment:
+
    - **Name**: `miniproject-backend` (or your preferred name)
    - **Region**: Choose a region closest to your users
    - **Branch**: `main` (or your default branch)
    - **Root Directory**: Leave blank to use the repository root
    - **Runtime**: Select "Docker"
    - **Instance Type**: Free (or select paid options for production)
-   
+
 6. Click "Advanced" and add the following environment variables:
 
-   | Key | Value | Description |
-   |-----|-------|-------------|
-   | MONGODB_URI | mongodb+srv://... | Your MongoDB connection string |
-   | JWT_SECRET | (secure random string) | Secret for JWT token signing |
-   | JWT_EXPIRATION | 86400000 | Token expiration in milliseconds (24h) |
-   | MAIL_HOST | smtp.gmail.com | SMTP server for email |
-   | MAIL_PORT | 587 | SMTP port |
-   | MAIL_USERNAME | `your.email@example.com` | Email username |
-   | MAIL_PASSWORD | your-app-password | Email password/app password |
-   | STRIPE_SECRET_KEY | sk_... | Stripe secret key |
-   | STRIPE_PUBLISHABLE_KEY | pk_... | Stripe publishable key |
-   | STRIPE_WEBHOOK_SECRET | whsec_... | Stripe webhook secret |
-   | STRIPE_SUCCESS_URL | `https://your-frontend-url/payment/success` | Payment success URL |
-   | STRIPE_CANCEL_URL | `https://your-frontend-url/payment/cancel` | Payment cancel URL |
-   | OTP_EXPIRATION | 300000 | OTP expiration in milliseconds (5m) |
-   | JAVA_OPTS | -XX:+UseContainerSupport -Xmx512m -Djava.security.egd=file:/dev/./urandom | JVM options |
+   | Key                    | Value                                                                     | Description                            |
+   | ---------------------- | ------------------------------------------------------------------------- | -------------------------------------- |
+   | MONGODB_URI            | mongodb+srv://...                                                         | Your MongoDB connection string         |
+   | JWT_SECRET             | (secure random string)                                                    | Secret for JWT token signing           |
+   | JWT_EXPIRATION         | 86400000                                                                  | Token expiration in milliseconds (24h) |
+   | MAIL_HOST              | smtp.gmail.com                                                            | SMTP server for email                  |
+   | MAIL_PORT              | 587                                                                       | SMTP port                              |
+   | MAIL_USERNAME          | `your.email@example.com`                                                  | Email username                         |
+   | MAIL_PASSWORD          | your-app-password                                                         | Email password/app password            |
+   | STRIPE_SECRET_KEY      | sk\_...                                                                   | Stripe secret key                      |
+   | STRIPE_PUBLISHABLE_KEY | pk\_...                                                                   | Stripe publishable key                 |
+   | STRIPE_WEBHOOK_SECRET  | whsec\_...                                                                | Stripe webhook secret                  |
+   | STRIPE_SUCCESS_URL     | `https://your-frontend-url/payment/success`                               | Payment success URL                    |
+   | STRIPE_CANCEL_URL      | `https://your-frontend-url/payment/cancel`                                | Payment cancel URL                     |
+   | OTP_EXPIRATION         | 300000                                                                    | OTP expiration in milliseconds (5m)    |
+   | JAVA_OPTS              | -XX:+UseContainerSupport -Xmx512m -Djava.security.egd=file:/dev/./urandom | JVM options                            |
 
 7. Click "Create Web Service"
 
@@ -95,4 +96,3 @@ If you encounter issues during deployment:
 - The free tier of Render may hibernate your service after inactivity
 - For production use, consider upgrading to a paid plan
 - Set up automatic deployments by connecting Render to your repository for continuous deployment
-

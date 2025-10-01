@@ -149,4 +149,3 @@ render services logs --name miniproject-backend --follow --all
 For more information about Render CLI commands, visit: [Render CLI Documentation](https://render.com/docs/cli)
 
 For API reference, visit: [Render API Documentation](https://api-docs.render.com)
-

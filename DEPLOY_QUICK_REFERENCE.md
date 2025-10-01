@@ -41,4 +41,3 @@ export RENDER_API_KEY="your_render_api_key" && npm install -g @render/cli && ren
 ```
 
 See [RENDER_CLI_DEPLOYMENT.md](./RENDER_CLI_DEPLOYMENT.md) for detailed instructions and more CLI options.
-
