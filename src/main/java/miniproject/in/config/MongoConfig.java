@@ -23,11 +23,11 @@ public class MongoConfig extends AbstractMongoClientConfiguration {
     protected String getDatabaseName() {
         // Extract database name from URI
         String dbName = "miniproject";
-        
+
         try {
             ConnectionString connString = new ConnectionString(mongoUri);
             String database = connString.getDatabase();
-            
+
             if (database != null && !database.isEmpty()) {
                 dbName = database;
             } else {
@@ -48,12 +48,12 @@ public class MongoConfig extends AbstractMongoClientConfiguration {
             // If any error occurs, use the default database name
             System.out.println("Failed to extract database name from URI: " + e.getMessage());
         }
-        
+
         // Ensure database name is not empty
         if (dbName == null || dbName.trim().isEmpty()) {
             dbName = "miniproject";
         }
-        
+
         System.out.println("Using MongoDB database: " + dbName);
         return dbName;
     }

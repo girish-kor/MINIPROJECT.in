@@ -29,14 +29,17 @@ Note the `/miniproject` after the hostname, which specifies the database name. T
 ## Deployment Steps
 
 1. **Fork or Clone the Repository**
+
    - Clone this repository to your local machine or fork it on GitHub.
 
 2. **Create a New Web Service on Render**
+
    - Log in to your Render dashboard.
    - Click on "New" and select "Web Service".
    - Connect your GitHub repository.
 
 3. **Configure the Web Service**
+
    - Name: `miniproject-backend` (or your preferred name)
    - Environment: `Docker`
    - Region: Choose the closest region to your users
@@ -45,6 +48,7 @@ Note the `/miniproject` after the hostname, which specifies the database name. T
    - Start Command: `java $JAVA_OPTS -jar target/*.jar`
 
 4. **Set Environment Variables**
+
    - In the "Environment" section, add the following variables:
      - `MONGODB_URI`: Your MongoDB URI with database name
      - `JWT_SECRET`: Your JWT secret key
