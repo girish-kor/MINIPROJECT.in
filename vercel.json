@@ -9,6 +9,10 @@
       "maxDuration": 60
     }
   },
+  "public": true,
+  "protection": {
+    "enabled": false
+  },
   "headers": [
     {
       "source": "/(.*)",
