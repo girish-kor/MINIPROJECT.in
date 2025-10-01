@@ -1,0 +1,42 @@
+# Maven/Gradle
+/target/
+/build/
+!.mvn/wrapper/maven-wrapper.jar
+
+# IDE files
+/.idea/
+/*.iml
+*.classpath
+*.project
+*.settings/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Environment files
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+.env
+
+# Node/npm (if any frontend)
+/node_modules/
+
+# Test output
+/test-output/
+*.test.js
+
+# Static and generated files
+/static/
+*.zip
+*.jar
+
+# Others
+*.swp
+*.swo

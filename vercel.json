@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "target/in-0.0.1-SNAPSHOT.jar",
+      "use": "@vercel/java"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "target/in-0.0.1-SNAPSHOT.jar"
+    }
+  ]
+}

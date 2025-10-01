@@ -1,0 +1,35 @@
+# .vscodeignore
+
+# Ignore node modules
+node_modules/
+
+# Ignore build output
+dist/
+out/
+build/
+target/
+
+# Ignore test output
+test-output/
+coverage/
+
+# Ignore environment files
+.env
+
+# Ignore logs
+*.log
+
+# Ignore OS/IDE files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.iml
+
+# Ignore archives
+*.zip
+*.jar
+
+# Ignore swap files
+*.swp
+*.swo

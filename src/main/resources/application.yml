@@ -1,0 +1,54 @@
+server:
+  port: ${SERVER_PORT:8080}
+  tomcat:
+    max-threads: ${SERVER_MAX_THREADS:200}
+    min-spare-threads: ${SERVER_MIN_SPARE_THREADS:20}
+    max-connections: ${SERVER_MAX_CONNECTIONS:10000}
+    accept-count: ${SERVER_ACCEPT_COUNT:100}
+
+spring:
+  data:
+    mongodb:
+      uri: ${MONGODB_URI:mongodb://localhost:27017/miniproject}
+
+  mail:
+    host: ${MAIL_HOST:smtp.gmail.com}
+    port: ${MAIL_PORT:587}
+    username: ${MAIL_USERNAME:your.email@gmail.com}
+    password: ${MAIL_PASSWORD:your-app-password}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+          timeout: 5000
+          connection-timeout: 5000
+          write-timeout: 5000
+
+app:
+  jwt:
+    secret: ${JWT_SECRET:test-jwt-secret-key-for-development-only}
+    expiration: ${JWT_EXPIRATION:86400000} # 24 hours
+
+  stripe:
+    secret-key: ${STRIPE_SECRET_KEY:sk_test_sample_key_for_development}
+    publishable-key: ${STRIPE_PUBLISHABLE_KEY:pk_test_sample_key_for_development}
+    webhook-secret: ${STRIPE_WEBHOOK_SECRET:whsec_sample_webhook_secret_for_development}
+    success-url: ${STRIPE_SUCCESS_URL:http://localhost:8080/payment/success}
+    cancel-url: ${STRIPE_CANCEL_URL:http://localhost:8080/payment/cancel}
+
+  otp:
+    expiration: ${OTP_EXPIRATION:300000} # 5 minutes
+# Add the following at the end of your existing application.yml
+
+logging:
+  level:
+    root: ${LOGGING_LEVEL_ROOT:INFO}
+    miniproject.in: ${LOGGING_LEVEL_APP:DEBUG}
+    org.springframework.web: ${LOGGING_LEVEL_WEB:INFO}
+    org.springframework.security: ${LOGGING_LEVEL_SECURITY:INFO}
+    org.springframework.data.mongodb: ${LOGGING_LEVEL_MONGODB:INFO}
+  pattern:
+    console: '%d{yyyy-MM-dd HH:mm:ss} - %highlight(%-5level) - %magenta([%thread]) - %cyan(%logger{36}) - %msg%n'
+# code to skip test
