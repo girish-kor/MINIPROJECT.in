@@ -13,14 +13,14 @@ public class CorsConfig {
     public CorsFilter corsFilter() {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         CorsConfiguration config = new CorsConfiguration();
-        
+
         // Allow all origins, headers, and methods for simplicity
         // In production, you should restrict these to specific domains
         config.setAllowCredentials(true);
         config.addAllowedOriginPattern("*");
         config.addAllowedHeader("*");
         config.addAllowedMethod("*");
-        
+
         source.registerCorsConfiguration("/**", config);
         return new CorsFilter(source);
     }
